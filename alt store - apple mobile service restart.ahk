@@ -3,6 +3,13 @@
 ; /////////////////////////////////////////////////////////////////
 #Requires AutoHotkey v2.0
 
+if not A_IsAdmin {
+    try {
+        Run('*RunAs "' A_AhkPath '" "' A_ScriptFullPath '"')
+        ExitApp
+    }
+}
+
 serviceName := "Apple Mobile Device Service"
 intervalMinutes := 15             ; Change to 15 or 30 as needed
 
